@@ -17,10 +17,9 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.tamilanapps.whatsthetemp.R
-import com.tamilanapps.whatsthetemp.helper.Constants
-import com.tamilanapps.whatsthetemp.helper.Constants.WEATHER_CLOUDY_NIGHT
-import com.tamilanapps.whatsthetemp.helper.DrawableResources.CLOUDY_SKY_NIGHT
+import com.tamilanapps.whatsthetemp.helper.*
+import com.tamilanapps.whatsthetemp.helper.AnimVals.CLOUDY_MICROINTERACTION_MODIFIER1
+import com.tamilanapps.whatsthetemp.helper.AnimVals.CLOUDY_MICROINTERACTION_MODIFIER2
 import com.tamilanapps.whatsthetemp.theme.WhatsTheTempTheme
 
 
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             WhatsTheTempTheme {
 
                 Surface(color = MaterialTheme.colors.background ) {
-                    ShowCurrentWeather(temp = Constants.DegreeCelsius, WEATHER_CLOUDY_NIGHT)
+                    ShowCurrentWeather(temp = DegreeCelsius, WEATHER_CLOUDY)
                 }
             }
         }
@@ -48,36 +47,13 @@ fun ShowCurrentWeather (temp: String, weatherCondition:String){
     var microInteractionPainter: Painter? = null
     var microInteractionPainter1: Painter? = null
 
-    //Objects for animation
-    val infiniteTransition = rememberInfiniteTransition()
-    val positionState1 = infiniteTransition.animateFloat(
-        initialValue =  0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            tween(
-                durationMillis =  12000,
-                easing = LinearEasing
-            )
-        )
-    )
-    val postionState2 = infiniteTransition.animateFloat(
-        initialValue =  0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            tween(
-                durationMillis =  8000,
-                easing = LinearEasing
-            )
-        )
-    )
-
 
     //Switch statement for reacting for weather conditions
     when(weatherCondition){
-        WEATHER_CLOUDY_NIGHT -> {
-            imagePainter = painterResource(id = CLOUDY_SKY_NIGHT)
-            microInteractionPainter = painterResource(id = R.drawable.cloud_microinteraction)
-            microInteractionPainter1 = painterResource(id = R.drawable.cloud_microinteraction)
+        WEATHER_CLOUDY -> {
+            if(Day())  imagePainter = painterResource(id = CLOUDY_SKY_DAY) else imagePainter = painterResource(id = CLOUDY_SKY_NIGHT)
+            microInteractionPainter = painterResource(id = CLOUDY_MICROINTERACTION)
+            microInteractionPainter1 = painterResource(id = CLOUDY_MICROINTERACTION)
         }
 
 
@@ -110,22 +86,12 @@ fun ShowCurrentWeather (temp: String, weatherCondition:String){
             ,
         ) {
 
-            val microInteractionModifier1 = Modifier.offset(
-                x = maxWidth * positionState1.value
-            )
-
-            val microInteractionModifier2 = Modifier.offset(
-                x = maxWidth * postionState2.value
-            )
-
-
-
 
             //MicroInteraction Image 1
             Image(
                 painter = microInteractionPainter1!!,
                 contentDescription = null,
-                modifier = microInteractionModifier1
+                modifier = CLOUDY_MICROINTERACTION_MODIFIER1(theMaxWidth = maxWidth)
                     .width(50.dp)
                     .fillMaxHeight(),
                 alignment = Alignment.BottomStart,
@@ -148,7 +114,7 @@ fun ShowCurrentWeather (temp: String, weatherCondition:String){
             Image(
                 painter = microInteractionPainter!!,
                 contentDescription = null,
-                modifier = microInteractionModifier2
+                modifier = CLOUDY_MICROINTERACTION_MODIFIER2(theMaxWidth = maxWidth)
                     .width(100.dp)
                     .fillMaxHeight(),
                 alignment = Alignment.BottomStart,
@@ -168,7 +134,7 @@ fun ShowCurrentWeather (temp: String, weatherCondition:String){
 @Composable
 fun DefaultPreview() {
     WhatsTheTempTheme {
-        ShowCurrentWeather(temp = Constants.DegreeCelsius, WEATHER_CLOUDY_NIGHT)
+        ShowCurrentWeather(temp = DegreeCelsius, WEATHER_CLOUDY)
     }
 
 

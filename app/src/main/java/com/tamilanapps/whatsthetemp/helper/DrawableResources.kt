@@ -2,7 +2,6 @@ package com.tamilanapps.whatsthetemp.helper
 
 import com.tamilanapps.whatsthetemp.R
 
-object DrawableResources {
 
     //Weather condition drawable resources (Day)
     const val CLEAR_DAY = R.drawable.clear_day
@@ -28,4 +27,3 @@ object DrawableResources {
     const val THUNDERSTORM_MICROINTERACTION =  R.drawable.thunderstrom_microinteraction
     const val RAIN_MICROINTERACTION =  R.drawable.rain_microinteraction
     const val SNOW_MICROINTERACTION =  R.drawable.snow_microinteraction
-}
