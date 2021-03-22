@@ -1,4 +1,4 @@
-package com.tamilanapps.whatsthetemp.helper
+package com.tamilanapps.whatsthetemp.utils
 
 
     //Fake weather reports
