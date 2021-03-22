@@ -1,4 +1,5 @@
 package com.tamilanapps.whatsthetemp.theme
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 //Background color
@@ -9,3 +10,11 @@ val primaryRed = Color(0xFF4444)
 val primaryTextColor = Color( 0xFFFFFFFF)
 //Secondary text color
 val secondaryTextColor = Color( 0x7AFFFFFF)
+
+
+//Gradient base colors
+val gradientColor1 = Color( 0xFFFF4444)
+val gradientColor2 = Color( 0xFFFF8544)
+
+//Gradients
+val gradientCard1 = Brush.horizontalGradient(listOf(gradientColor1, gradientColor2))

@@ -1,8 +1,7 @@
 package com.tamilanapps.whatsthetemp.utils
 
 
-    //Fake weather reports
-    const val DegreeCelsius = "76"
+
 
     //Weather condition constants
     const val WEATHER_CLOUDY = "WEATHER_CLOUDY"

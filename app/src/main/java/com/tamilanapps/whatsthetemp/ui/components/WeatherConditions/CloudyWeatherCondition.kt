@@ -15,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.tamilanapps.whatsthetemp.utils.*
 
-/* This Displays cloudy weather condition */
+/* Composable function which is used for displaying weather overview if weather is cloudy*/
 @Composable
 fun DisplayCloudyWeatherOverview (){
 

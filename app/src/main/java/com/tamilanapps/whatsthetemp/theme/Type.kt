@@ -37,7 +37,21 @@ val typography = Typography(
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 color = secondaryTextColor
+        ),
+        h4 = TextStyle(
+                fontFamily = Montserrat,
+                fontWeight = FontWeight.Bold,
+                fontSize = 15.sp,
+                color = secondaryTextColor
+        ),
+        h5 = TextStyle(
+                fontFamily = Montserrat,
+                fontWeight = FontWeight.Bold,
+                fontSize = 13.sp,
+                color = primaryTextColor
         )
+
+
 
 
 )
