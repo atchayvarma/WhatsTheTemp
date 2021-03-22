@@ -5,14 +5,14 @@ import java.util.*
 
 
 //Function that checks whether its day or not
-fun Day(): Boolean {
+fun notDay(): Boolean {
     //Calender object and Hours object
     val cal: Calendar = Calendar.getInstance()
     val hours = cal.get(Calendar.HOUR)
 
     //If time is above 7'0 clock
-    if(hours <= 17) return false
-    return true
+    return hours > 19
+
    }
 
 

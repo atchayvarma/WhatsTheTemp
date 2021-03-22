@@ -27,3 +27,6 @@ import com.tamilanapps.whatsthetemp.R
     const val THUNDERSTORM_MICROINTERACTION =  R.drawable.thunderstrom_microinteraction
     const val RAIN_MICROINTERACTION =  R.drawable.rain_microinteraction
     const val SNOW_MICROINTERACTION =  R.drawable.snow_microinteraction
+
+    //Location Icon
+    const val LOCATION_ICON = R.drawable.ic_location

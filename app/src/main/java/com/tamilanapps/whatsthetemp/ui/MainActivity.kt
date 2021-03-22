@@ -1,21 +1,18 @@
 package com.tamilanapps.whatsthetemp.ui
 
+import DisplayWeatherOverview
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import com.tamilanapps.whatsthetemp.utils.*
 import com.tamilanapps.whatsthetemp.theme.WhatsTheTempTheme
 import com.tamilanapps.whatsthetemp.theme.backgroundColor
-import com.tamilanapps.whatsthetemp.ui.components.ShowWeatherOverview
+import com.tamilanapps.whatsthetemp.ui.components.DisplayLocationIndicator
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContent {
             WhatsTheTempTheme {
 
-                Surface(color = backgroundColor, modifier = Modifier.fillMaxSize()) {
-                        ShowWeatherOverview(temp = DegreeCelsius, weatherCondition = WEATHER_CLOUDY)
+                //Loading UI Components
+                Surface(color = backgroundColor) {
+                    DisplayLocationIndicator()
+                        DisplayWeatherOverview(temp = DegreeCelsius, weatherCondition = WEATHER_CLOUDY)
                 }
 
             }
@@ -41,9 +40,12 @@ class MainActivity : AppCompatActivity() {
     fun DefaultPreview() {
         WhatsTheTempTheme {
 
+            //Loading UI Components
             Surface(color = backgroundColor) {
-                    ShowWeatherOverview(temp = DegreeCelsius, weatherCondition = WEATHER_CLOUDY)
+                DisplayLocationIndicator()
+                DisplayWeatherOverview(temp = DegreeCelsius, weatherCondition = WEATHER_CLOUDY)
             }
+
         }
 
 
