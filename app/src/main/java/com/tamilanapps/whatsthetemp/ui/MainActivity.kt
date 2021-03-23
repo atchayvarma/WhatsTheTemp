@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.tamilanapps.whatsthetemp.utils.*
 import com.tamilanapps.whatsthetemp.theme.WhatsTheTempTheme
 import com.tamilanapps.whatsthetemp.theme.backgroundColor
+import com.tamilanapps.whatsthetemp.theme.mainTopBG
 import com.tamilanapps.whatsthetemp.ui.components.DisplayDetailedWeather
 import com.tamilanapps.whatsthetemp.ui.components.DisplayTodayWeather
 import com.tamilanapps.whatsthetemp.ui.components.WeatherConditions.DisplayFiveDaysForecast
@@ -37,7 +38,17 @@ class MainActivity : AppCompatActivity() {
                     .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+
+                    Column(modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            brush = mainTopBG
+                        ),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+                    }
+
                     DisplayDetailedWeather()
                     DisplayTodayWeather()
                     DisplayFiveDaysForecast()
