@@ -33,7 +33,12 @@ fun DisplayClearWeatherOverview (){
 
 
     //Assigning value for painter
-    if(notDay())  imagePainter =  painterResource(id = CLOUDY_SKY_NIGHT) else imagePainter = painterResource(id = CLOUDY_SKY_DAY)
+    if(notDay()) {
+        imagePainter =  painterResource(id = CLEAR_NIGHT)
+    }
+    else{
+        imagePainter = painterResource(id = CLEAR_DAY)
+    }
 
     Column( modifier = Modifier
         .fillMaxWidth(),
@@ -66,3 +71,4 @@ fun DisplayClearWeatherOverview (){
 
 
 }
+

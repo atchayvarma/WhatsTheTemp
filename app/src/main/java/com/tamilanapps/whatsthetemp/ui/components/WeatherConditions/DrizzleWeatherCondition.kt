@@ -41,8 +41,13 @@ fun DisplayDrizzleWeatherOverview (){
 
 
     //Assigning values for painters
-    imagePainter =  if(notDay()) painterResource(id = DRIZZLE_NIGHT) else painterResource(id = DRIZZLE_DAY)
-
+    //Assigning value for painter
+    if(notDay()) {
+        imagePainter =  painterResource(id = DRIZZLE_NIGHT)
+    }
+    else{
+        imagePainter = painterResource(id = DRIZZLE_DAY)
+    }
     if (cloudState.value <= 0.5f) {
         microInteractionPainter = painterResource(id = DRIZZLE_INITIAL_MICROINTERACTION)
     }else{

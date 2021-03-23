@@ -6,12 +6,18 @@ import java.util.*
 
 //Function that checks whether its day or not
 fun notDay(): Boolean {
+
+    //boolean
+    var boo: Boolean = false
     //Calender object and Hours object
     val cal: Calendar = Calendar.getInstance()
     val hours = cal.get(Calendar.HOUR)
 
     //If time is above 7'0 clock
-    return hours > 19
+
+    if (hours >= 19) { boo = true}
+
+    return boo
 
    }
 
@@ -37,9 +43,9 @@ fun currentTime(): String {
             time = NIGHT
         }
 
-      time.let {theTime ->
-          return theTime
-      }
+
+          return time
+
 
 
 }

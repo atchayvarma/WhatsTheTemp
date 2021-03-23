@@ -31,7 +31,13 @@ fun DisplayCloudyWeatherOverview (){
 
 
     //Assigning values for painters
-    if(notDay())  imagePainter =  painterResource(id = CLOUDY_SKY_NIGHT) else imagePainter = painterResource(id = CLOUDY_SKY_DAY)
+    //Assigning value for painter
+    if(notDay()) {
+        imagePainter =  painterResource(id = CLOUDY_SKY_NIGHT)
+    }
+    else{
+        imagePainter = painterResource(id = CLOUDY_SKY_DAY)
+    }
     microInteractionPainter = painterResource(id = CLOUDY_MICROINTERACTION)
 
     //Assigning values for position state

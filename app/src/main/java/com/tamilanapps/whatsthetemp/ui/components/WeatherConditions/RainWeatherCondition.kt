@@ -41,7 +41,12 @@ fun DisplayRainWeatherOverview (){
 
 
     //Assigning values for painters
-    imagePainter = if(notDay()) painterResource(id = RAIN_NIGHT) else painterResource(id = RAIN_DAY)
+    if(notDay()) {
+        imagePainter =  painterResource(id = RAIN_NIGHT)
+    }
+    else{
+        imagePainter = painterResource(id = RAIN_DAY)
+    }
 
     if (cloudState.value <= 0.5f) {
         microInteractionPainter = painterResource(id = RAIN_INITIAL_MICROINTERACTION)

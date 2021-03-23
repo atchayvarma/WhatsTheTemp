@@ -33,8 +33,28 @@ fun DisplayTemperatureAndLocation(temp:String, weatherCondition: String){
 
         when(weatherCondition){
             WEATHER_CLOUDY -> {
-                _weatherCondition = "Cloudy Sky"
+                _weatherCondition = "Cloudy Sky ☁"
             }
+            WEATHER_SNOW -> {
+                _weatherCondition = "Snow Shower❄"
+            }
+            WEATHER_RAIN -> {
+                _weatherCondition = "Rainy ☔"
+            }
+            WEATHER_MIST -> {
+                _weatherCondition = "Mist"
+            }
+            WEATHER_THUNDERSTORM -> {
+                _weatherCondition = "ThunderStorm ⛈"
+            }
+            WEATHER_CLEAR -> {
+                _weatherCondition = "Sky is clear"
+            }
+            WEATHER_DRIZZLE -> {
+                _weatherCondition = "Drizzle"
+            }
+
+
         }
 
         Spacer(modifier = Modifier.padding(10.dp))

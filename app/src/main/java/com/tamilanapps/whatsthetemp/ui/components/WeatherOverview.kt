@@ -22,7 +22,33 @@ import com.tamilanapps.whatsthetemp.utils.*
         ) {
 
             //Displaying temperature
-           DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_CLOUDY)
+            when (weatherCondition) {
+                WEATHER_CLOUDY -> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_CLOUDY)
+                }
+
+                WEATHER_CLEAR-> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_CLEAR)
+                }
+
+                WEATHER_SNOW-> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_SNOW)
+                }
+                WEATHER_RAIN -> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_RAIN)
+                }
+                WEATHER_THUNDERSTORM -> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_THUNDERSTORM)
+                }
+                WEATHER_DRIZZLE -> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_DRIZZLE)
+                }
+                WEATHER_MIST -> {
+                    DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_MIST)
+                }
+            }
+
+
 
             //When condition that react to the weather condition
             when (weatherCondition) {
@@ -56,4 +82,5 @@ import com.tamilanapps.whatsthetemp.utils.*
 
 
     }
+
 

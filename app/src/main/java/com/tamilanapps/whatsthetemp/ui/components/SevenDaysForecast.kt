@@ -38,7 +38,6 @@ fun DisplayFiveDaysForecast(){
 
             ) {
             ForecastCard(day = DAY_1, temp = DAY_1_TEMP, WEATHER_CLOUDY)
-            ForecastCard(day = DAY_1, temp = DAY_1_TEMP, WEATHER_CLOUDY)
             ForecastCard(day = DAY_2, temp = DAY_2_TEMP, WEATHER_CLEAR)
             ForecastCard(day = DAY_3, temp = DAY_3_TEMP, WEATHER_DRIZZLE)
             ForecastCard(day = DAY_4, temp = DAY_4_TEMP, WEATHER_RAIN)

@@ -1,6 +1,7 @@
 package com.tamilanapps.whatsthetemp.ui.components
 
 import android.speech.tts.TextToSpeech
+import android.speech.tts.Voice
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.FloatingActionButton
@@ -13,9 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.tamilanapps.whatsthetemp.theme.cardShape1
 import com.tamilanapps.whatsthetemp.theme.gradientCard1
+import com.tamilanapps.whatsthetemp.theme.primaryRed
 import com.tamilanapps.whatsthetemp.utils.*
 import java.util.*
+import kotlin.collections.HashSet
 
 /* Composable function which is used for displaying detailed weather */
 lateinit var mTTS: TextToSpeech
@@ -24,10 +28,31 @@ fun DisplayDetailedWeather() {
 
     mTTS = TextToSpeech( applicationContext(), TextToSpeech.OnInitListener { status ->
         if (status != TextToSpeech.ERROR){
+
+            var features = HashSet<String>()
+            features.add("male")
             mTTS.language = Locale.ENGLISH
         }
     })
 
+
+    FloatingActionButton(
+        backgroundColor = primaryRed ,
+        shape = cardShape1,
+        modifier = Modifier
+            .padding(20.dp),
+        onClick = {
+            if (mTTS.isSpeaking) {
+                mTTS.stop()
+                mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
+            } else {
+                mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
+            }
+        })
+
+    {
+        Icon(painter = painterResource(id = PLAY_ICON), contentDescription = null)
+    }
 
     Box(
         modifier = Modifier
@@ -35,18 +60,7 @@ fun DisplayDetailedWeather() {
             .clip(MaterialTheme.shapes.small),
     ) {
 
-        FloatingActionButton(
-            onClick = {
-                if (mTTS.isSpeaking) {
-                    mTTS.stop()
-                    mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
-                } else {
-                    mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
-                }
-            })
-        {
-            Icon(painter = painterResource(id = PLAY_ICON), contentDescription = null)
-        }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()

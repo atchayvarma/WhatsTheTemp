@@ -42,7 +42,12 @@ fun DisplayMistWeatherOverview (){
 
 
     //Assigning values for painters
-    imagePainter =  if(notDay()) painterResource(id = MIST_NIGHT) else painterResource(id = MIST_DAY)
+    if(notDay()) {
+        imagePainter =  painterResource(id = MIST_NIGHT)
+    }
+    else{
+        imagePainter = painterResource(id = MIST_DAY)
+    }
 
     if (cloudState.value <= 0.5f) {
         microInteractionPainter = painterResource(id = MIST_INITIAL_MICROINTERACTION)

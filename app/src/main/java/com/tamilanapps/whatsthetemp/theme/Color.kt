@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 //Background color
 val backgroundColor = Color(0xD3000000)
 //Primary app color
-val primaryRed = Color(0xFF4444)
+val primaryRed = Color(0xFFF44336)
 //Primary text color
 val primaryTextColor = Color( 0xFFFFFFFF)
 //Secondary text color

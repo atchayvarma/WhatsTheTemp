@@ -8,9 +8,8 @@ import java.util.*
 fun DATE(): String {
 
     //Calender Date object
-    val calDate = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
+    val calDate = Calendar.getInstance().time
 
-    Log.d("Debug", calDate.toString())
     //DateFormatter which formats the date
     val dateFormatter = SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault())
 
