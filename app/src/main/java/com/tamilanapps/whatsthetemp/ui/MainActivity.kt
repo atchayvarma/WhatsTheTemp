@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
@@ -14,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.tamilanapps.whatsthetemp.utils.*
 import com.tamilanapps.whatsthetemp.theme.WhatsTheTempTheme
 import com.tamilanapps.whatsthetemp.theme.backgroundColor
@@ -47,11 +50,18 @@ class MainActivity : AppCompatActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+                        Spacer(modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(30.dp))
                     }
 
                     DisplayDetailedWeather()
                     DisplayTodayWeather()
                     DisplayFiveDaysForecast()
+                    Spacer(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(10.dp))
+
                 }
 
             }
@@ -72,9 +82,27 @@ class MainActivity : AppCompatActivity() {
                 .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        brush = mainTopBG
+                    ),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+                    Spacer(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(30.dp))
+                }
+
                 DisplayDetailedWeather()
                 DisplayTodayWeather()
+                DisplayFiveDaysForecast()
+                Spacer(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(30.dp))
+
             }
 
         }

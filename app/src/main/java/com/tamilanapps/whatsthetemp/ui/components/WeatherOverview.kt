@@ -1,9 +1,11 @@
 package com.tamilanapps.whatsthetemp.ui.components
 
+import DisplayClearWeatherOverview
 import DisplayCloudyWeatherOverview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import com.tamilanapps.whatsthetemp.utils.WEATHER_CLEAR
 
 import com.tamilanapps.whatsthetemp.utils.WEATHER_CLOUDY
 
@@ -24,6 +26,10 @@ import com.tamilanapps.whatsthetemp.utils.WEATHER_CLOUDY
             when (weatherCondition) {
                 WEATHER_CLOUDY -> {
                     DisplayCloudyWeatherOverview()
+                }
+
+                WEATHER_CLEAR-> {
+                    DisplayClearWeatherOverview()
                 }
             }
 
