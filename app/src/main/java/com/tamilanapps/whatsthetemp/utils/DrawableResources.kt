@@ -21,12 +21,21 @@ import com.tamilanapps.whatsthetemp.R
     const val SNOW_NIGHT =  R.drawable.snow_night
     const val THUNDERSTORM_NIGHT =  R.drawable.thunderstrom_night
 
-    //MicroInteraction drawable resources
+     //MicroInteraction drawable resources(Initial)
+     const val DRIZZLE_INITIAL_MICROINTERACTION =  R.drawable.drizzle_microinteraction_initial
+     const val THUNDERSTORM_INITIAL_MICROINTERACTION =  R.drawable.thunderstrom_microinteraction_initial
+     const val RAIN_INITIAL_MICROINTERACTION =  R.drawable.rain_microinteraction_initial
+     const val SNOW_INITIAL_MICROINTERACTION =  R.drawable.snow_microinteraction_initial
+     const val MIST_INITIAL_MICROINTERACTION =  R.drawable.mist_microinteraction_initial
+
+    //MicroInteraction drawable resources(Final)
     const val CLOUDY_MICROINTERACTION =  R.drawable.cloud_microinteraction
     const val DRIZZLE_MICROINTERACTION =  R.drawable.drizzle_microinteraction
     const val THUNDERSTORM_MICROINTERACTION =  R.drawable.thunderstrom_microinteraction
     const val RAIN_MICROINTERACTION =  R.drawable.rain_microinteraction
     const val SNOW_MICROINTERACTION =  R.drawable.snow_microinteraction
+    const val MIST_MICROINTERACTION =  R.drawable.mist_microinteraction
 
     //Location Icon
     const val LOCATION_ICON = R.drawable.ic_location
+

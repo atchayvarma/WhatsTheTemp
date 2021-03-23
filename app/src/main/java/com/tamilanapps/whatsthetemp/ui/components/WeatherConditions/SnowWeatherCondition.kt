@@ -17,7 +17,7 @@ import com.tamilanapps.whatsthetemp.utils.*
 
 /* Composable function which is used for displaying weather overview if weather is cloudy*/
 @Composable
-fun DisplayCloudyWeatherOverview (){
+fun DisplaySnowWeatherOverview (){
 
     //Painter objects
     var imagePainter: Painter? = null
@@ -27,13 +27,27 @@ fun DisplayCloudyWeatherOverview (){
     val infiniteTransition = rememberInfiniteTransition()
     var positionState1: State<Float>? = null
     var positionState2: State<Float>? = null
+    var cloudState: State<Float> = infiniteTransition.animateFloat(
+        initialValue =  0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            tween(
+                durationMillis =  1500,
+                easing = FastOutLinearInEasing
+            ),
+        )
+    )
 
 
 
     //Assigning values for painters
-    if(notDay())  imagePainter =  painterResource(id = CLOUDY_SKY_NIGHT) else imagePainter = painterResource(id = CLOUDY_SKY_DAY)
-    microInteractionPainter = painterResource(id = CLOUDY_MICROINTERACTION)
+    imagePainter = if(notDay()) painterResource(id = SNOW_NIGHT) else painterResource(id = SNOW_DAY)
 
+    if (cloudState.value <= 0.5f) {
+        microInteractionPainter = painterResource(id = SNOW_INITIAL_MICROINTERACTION)
+    }else{
+        microInteractionPainter = painterResource(id = SNOW_MICROINTERACTION)
+    }
     //Assigning values for position state
     positionState1 = infiniteTransition.animateFloat(
         initialValue =  0f,

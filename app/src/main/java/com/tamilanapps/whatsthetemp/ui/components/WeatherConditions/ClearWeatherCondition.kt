@@ -15,6 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.tamilanapps.whatsthetemp.utils.*
 
+
+
 /* Composable function which is used for displaying weather overview if weather is clear */
 @Composable
 fun DisplayClearWeatherOverview (){

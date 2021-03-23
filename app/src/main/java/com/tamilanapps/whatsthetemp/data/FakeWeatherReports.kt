@@ -28,7 +28,9 @@ const val DAY_1_TEMP = "37/22°C"
 const val DAY_2_TEMP = "38/23°C"
 const val DAY_3_TEMP = "38/23°C"
 const val DAY_4_TEMP = "35/19°C"
-const val DAY_5_TEMP = "41/22°C"
+const val DAY_5_TEMP = "22/10°C"
+const val DAY_6_TEMP = "41/22°C"
+const val DAY_7_TEMP = "41/22°C"
 
 
 

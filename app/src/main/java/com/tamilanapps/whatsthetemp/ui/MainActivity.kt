@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                         ),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+                        DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_THUNDERSTORM)
                         Spacer(modifier = Modifier
                             .fillMaxWidth()
                             .padding(30.dp))

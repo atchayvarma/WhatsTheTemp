@@ -2,13 +2,13 @@ package com.tamilanapps.whatsthetemp.ui.components
 
 import DisplayClearWeatherOverview
 import DisplayCloudyWeatherOverview
+import DisplayRainWeatherOverview
+import DisplaySnowWeatherOverview
+import DisplayThunderstrmWeatherOverview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import com.tamilanapps.whatsthetemp.utils.WEATHER_CLEAR
-
-import com.tamilanapps.whatsthetemp.utils.WEATHER_CLOUDY
-
+import com.tamilanapps.whatsthetemp.utils.*
 
 
 /* Composable function which is used for displaying weather overview (Current) */
@@ -30,6 +30,16 @@ import com.tamilanapps.whatsthetemp.utils.WEATHER_CLOUDY
 
                 WEATHER_CLEAR-> {
                     DisplayClearWeatherOverview()
+                }
+
+                WEATHER_SNOW-> {
+                    DisplaySnowWeatherOverview()
+                }
+                WEATHER_RAIN -> {
+                    DisplayRainWeatherOverview()
+                }
+                WEATHER_THUNDERSTORM -> {
+                    DisplayThunderstrmWeatherOverview()
                 }
             }
 
