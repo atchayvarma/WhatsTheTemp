@@ -2,9 +2,11 @@ package com.tamilanapps.whatsthetemp.ui.components
 
 import DisplayClearWeatherOverview
 import DisplayCloudyWeatherOverview
+import DisplayDrizzleWeatherOverview
+import DisplayMistWeatherOverview
 import DisplayRainWeatherOverview
 import DisplaySnowWeatherOverview
-import DisplayThunderstrmWeatherOverview
+import DisplayThunderstormWeatherOverview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,7 +22,7 @@ import com.tamilanapps.whatsthetemp.utils.*
         ) {
 
             //Displaying temperature
-            DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_CLOUDY)
+           DisplayTemperatureAndLocation(temp = temp, weatherCondition = WEATHER_CLOUDY)
 
             //When condition that react to the weather condition
             when (weatherCondition) {
@@ -39,7 +41,13 @@ import com.tamilanapps.whatsthetemp.utils.*
                     DisplayRainWeatherOverview()
                 }
                 WEATHER_THUNDERSTORM -> {
-                    DisplayThunderstrmWeatherOverview()
+                    DisplayThunderstormWeatherOverview()
+                }
+                WEATHER_DRIZZLE -> {
+                    DisplayDrizzleWeatherOverview()
+                }
+                WEATHER_MIST -> {
+                    DisplayMistWeatherOverview()
                 }
             }
 

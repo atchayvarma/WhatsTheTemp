@@ -18,3 +18,6 @@ const val MORNING:String = "Morning"
 const val AFTERNOON:String = "Afternoon"
 const val EVENING:String = "Evening"
 const val NIGHT:String = "Night"
+
+//TTS Speech text
+var TTS_SPEECH_TEXT = "Today is ${DATE()}, And today weather is ${TEMP} and it feels like ${41} "

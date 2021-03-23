@@ -1,5 +1,6 @@
 
 
+
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,7 +18,7 @@ import com.tamilanapps.whatsthetemp.utils.*
 
 /* Composable function which is used for displaying weather overview if weather is cloudy*/
 @Composable
-fun DisplayThunderstormWeatherOverview (){
+fun DisplayMistWeatherOverview (){
 
     //Painter objects
     var imagePainter: Painter? = null
@@ -41,12 +42,12 @@ fun DisplayThunderstormWeatherOverview (){
 
 
     //Assigning values for painters
-    imagePainter = if(notDay()) painterResource(id = THUNDERSTORM_NIGHT) else painterResource(id = THUNDERSTORM_DAY)
+    imagePainter =  if(notDay()) painterResource(id = MIST_NIGHT) else painterResource(id = MIST_DAY)
 
     if (cloudState.value <= 0.5f) {
-        microInteractionPainter = painterResource(id = THUNDERSTORM_INITIAL_MICROINTERACTION)
+        microInteractionPainter = painterResource(id = MIST_INITIAL_MICROINTERACTION)
     }else{
-        microInteractionPainter = painterResource(id = THUNDERSTORM_MICROINTERACTION)
+        microInteractionPainter = painterResource(id = MIST_MICROINTERACTION)
     }
     //Assigning values for position state
     positionState1 = infiniteTransition.animateFloat(
@@ -103,14 +104,16 @@ fun DisplayThunderstormWeatherOverview (){
             )
 
             //Weather condition Image
-            Image(
-                alignment = Alignment.Center,
-                painter = imagePainter,
-                contentDescription = null,
-                modifier = Modifier
-                    .height(250.dp)
-                    .fillMaxWidth(),
-            )
+            imagePainter?.let {
+                Image(
+                    alignment = Alignment.Center,
+                    painter = it,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(250.dp)
+                        .fillMaxWidth(),
+                )
+            }
 
             //MicroInteraction Image 2
             Image(

@@ -1,7 +1,10 @@
 package com.tamilanapps.whatsthetemp.ui.components
 
+import android.speech.tts.TextToSpeech
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -9,19 +12,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.tamilanapps.whatsthetemp.utils.DATE
-import com.tamilanapps.whatsthetemp.utils.LOCATION_ICON
-import com.tamilanapps.whatsthetemp.utils.WEATHER_CLOUDY
+import com.tamilanapps.whatsthetemp.utils.*
+import java.util.*
+
+
+
 
 
 /* Composable function which is used for displaying Temp, Date, Weather condition in text */
 @Composable
 fun DisplayTemperatureAndLocation(temp:String, weatherCondition: String){
+
+    var _weatherCondition:String? = null
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()
     ) {
-        var _weatherCondition:String? = null
+
 
         when(weatherCondition){
             WEATHER_CLOUDY -> {
@@ -33,6 +41,7 @@ fun DisplayTemperatureAndLocation(temp:String, weatherCondition: String){
 
         //Location Indicator
         Row(verticalAlignment = Alignment.CenterVertically,) {
+            }
             //Location icon
             Image(
                 painter = painterResource(id = LOCATION_ICON),
@@ -72,5 +81,8 @@ fun DisplayTemperatureAndLocation(temp:String, weatherCondition: String){
             style = MaterialTheme.typography.h1,
         )
     }
-}
+
+
+
+
 

@@ -1,20 +1,33 @@
 package com.tamilanapps.whatsthetemp.ui.components
 
+import android.speech.tts.TextToSpeech
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.tamilanapps.whatsthetemp.theme.gradientCard1
 import com.tamilanapps.whatsthetemp.utils.*
+import java.util.*
 
 /* Composable function which is used for displaying detailed weather */
+lateinit var mTTS: TextToSpeech
 @Composable
 fun DisplayDetailedWeather() {
+
+    mTTS = TextToSpeech( applicationContext(), TextToSpeech.OnInitListener { status ->
+        if (status != TextToSpeech.ERROR){
+            mTTS.language = Locale.ENGLISH
+        }
+    })
+
 
     Box(
         modifier = Modifier
@@ -22,7 +35,18 @@ fun DisplayDetailedWeather() {
             .clip(MaterialTheme.shapes.small),
     ) {
 
-
+        FloatingActionButton(
+            onClick = {
+                if (mTTS.isSpeaking) {
+                    mTTS.stop()
+                    mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
+                } else {
+                    mTTS.speak(TTS_SPEECH_TEXT, TextToSpeech.QUEUE_FLUSH, null)
+                }
+            })
+        {
+            Icon(painter = painterResource(id = PLAY_ICON), contentDescription = null)
+        }
         Column(
             modifier = Modifier
                 .fillMaxWidth()

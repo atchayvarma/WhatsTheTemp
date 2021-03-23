@@ -36,6 +36,7 @@ import com.tamilanapps.whatsthetemp.R
     const val SNOW_MICROINTERACTION =  R.drawable.snow_microinteraction
     const val MIST_MICROINTERACTION =  R.drawable.mist_microinteraction
 
-    //Location Icon
+    //Icons
     const val LOCATION_ICON = R.drawable.ic_location
+    const val PLAY_ICON = R.drawable.ic__play
 
