@@ -1,64 +1,80 @@
 package com.tamilanapps.whatsthetemp.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.tamilanapps.whatsthetemp.theme.gradientCard1
 import com.tamilanapps.whatsthetemp.utils.*
 
 /* Composable function which is used for displaying detailed weather */
 @Composable
-fun DisplayDetailedWeather(){
+fun DisplayDetailedWeather() {
 
-    Column(
+    Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .background(gradientCard1)
-            ,
-        horizontalAlignment = Alignment.CenterHorizontally,
+            .padding(12.dp)
+            .clip(MaterialTheme.shapes.small),
     ) {
 
-        //Feels like text
-        Text(
-            text = "Feels like 41",
-            style = MaterialTheme.typography.h3
-        )
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            //Displaying detail cards
-            DetailCard(title = "Wind.spd", value = "${WIND}km/h")
-            DetailCard(title = "Temp.Max", value = "${MAX_TEMP}C")
-            DetailCard(title = "Wind.spd", value = "${MIN_TEMP}C")
-            DetailCard(title = "Wind.spd", value = "${HUMIDITY}%")
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(gradientCard1),
+            horizontalAlignment = Alignment.CenterHorizontally,
 
-        }
+            ) {
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            //Displaying detail cards
+            //Feels like text
+            Text(
+                text = "Feels like 41",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier
+                    .padding(10.dp)
+            )
 
-            DetailCard(title = "Snow chance", value = "${SNOW_CHANCE}%")
-            DetailCard(title = "Rain Chance", value = "${RAIN_CHANCE}%")
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 10.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                //Displaying detail cards
+                DetailCard(title = "Wind.Spd", value = WIND)
+                DetailCard(title = "Temp.Max", value = MAX_TEMP)
+                DetailCard(title = "Temp.Min", value = MIN_TEMP)
 
+
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 10.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                //Displaying detail cards
+                DetailCard(title = "Humidity", value = "${HUMIDITY}%")
+                DetailCard(title = "Snow chance", value = "${SNOW_CHANCE}%")
+                DetailCard(title = "Rain Chance", value = "${RAIN_CHANCE}%")
+
+
+            }
 
         }
     }
-
-
 }
+
+
+
 
 
 @Composable

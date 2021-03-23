@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +18,8 @@ import com.tamilanapps.whatsthetemp.utils.*
 import com.tamilanapps.whatsthetemp.theme.WhatsTheTempTheme
 import com.tamilanapps.whatsthetemp.theme.backgroundColor
 import com.tamilanapps.whatsthetemp.ui.components.DisplayDetailedWeather
+import com.tamilanapps.whatsthetemp.ui.components.DisplayTodayWeather
+import com.tamilanapps.whatsthetemp.ui.components.WeatherConditions.DisplayFiveDaysForecast
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,11 +33,14 @@ class MainActivity : AppCompatActivity() {
                 //Loading UI Components
                 Column(modifier = Modifier
                     .fillMaxWidth()
-                    .background(backgroundColor),
+                    .background(backgroundColor)
+                    .verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
                     DisplayDetailedWeather()
+                    DisplayTodayWeather()
+                    DisplayFiveDaysForecast()
                 }
 
             }
@@ -48,8 +55,15 @@ class MainActivity : AppCompatActivity() {
         WhatsTheTempTheme {
 
             //Loading UI Components
-            Surface(color = backgroundColor) {
-                DisplayWeatherOverview(temp = "${TEMP}C", weatherCondition = WEATHER_CLOUDY)
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .background(backgroundColor)
+                .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                DisplayWeatherOverview(temp = TEMP, weatherCondition = WEATHER_CLOUDY)
+                DisplayDetailedWeather()
+                DisplayTodayWeather()
             }
 
         }
